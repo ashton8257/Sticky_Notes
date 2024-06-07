@@ -1,0 +1,16 @@
+<!-- sticky_notes_app/templates/sticky_notes_app/note_detail.html -->
+{% extends 'sticky_notes_app/base.html' %}
+
+{% block title %}Sticky Notes - Detail{% endblock %}
+
+{% block content %}
+<h2>{{ note.title }}</h2>
+<div class="content">
+    <p>{{ note.content }}</p>
+</div>
+<div class="actions">
+    <a href="{% url 'note_edit' note.pk %}"><button>Edit</button></a>
+    <a href="{% url 'note_delete' note.pk %}"><button>Delete</button></a>
+    <a href="{% url 'note_list' %}"><button>Back to list</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!-- sticky_notes_app/templates/sticky_notes_app/note_form.html-->
+{% extends 'sticky_notes_app/base.html' %}
+
+{% block title %}Sticky Notes - Form{% endblock %}
+
+{% block content %}
+<h2>{% if note.pk %}Edit{% else %}Create{% endif %} Note</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if note.pk %}Update{% else %}Create{% endif %}</button>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!-- sticky_note_app/templates/sticky_notes_app/note_list.html -->
+{% extends 'sticky_notes_app/base.html' %}
+
+{% block title %}Sticky Notes - List{% endblock %}
+
+{% block content %}
+<h2>Note List</h2>
+<a href="{% url 'note_create' %}">Create Note</a>
+<ul>
+    {% for note in notes %}
+        <li>
+            <a href="{% url 'note_detail' note.pk %}" class="note-title">{{ note.title }}</a>
+            <a href="{% url 'note_edit' note.pk %}"><button>Edit</button></a>
+            <a href="{% url 'note_delete' note.pk %}"><button>Delete</button></a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!-- sticky_notes_app/templates/sticky_notes_app/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Application{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sticky_notes_app/styles.css' %}">
+    <style>
+        .navbar {
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+        .navbar a {
+            margin-right: 20px;
+            padding: 8px 16px;
+            color: #000;
+        }
+
+        .navbar a:hover {
+            color: #007bff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Application</h1>
+            <nav>
+                <div class="navbar">
+                    <a href="{% url 'note_list' %}">Sticky Notes</a>
+                    <a href="{% url 'post_list' %}">Bulletin Board</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <p>&copy; 2024 My Application</p>
+        </footer>
+    </div>
+</body>
+</html>

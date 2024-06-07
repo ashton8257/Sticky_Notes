@@ -1,0 +1,18 @@
+<!-- bulletin_board/templates/bulletin_board/post_list.html -->
+{% extends 'sticky_notes_app/base.html' %}
+
+{% block title %}Bulletin Board Posts - List{% endblock %}
+
+{% block content %}
+<h2>Posts</h2>
+<a href="{% url 'post_create' %}">Create Post</a>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.pk %}" class="note-title">{{ post.title }}</a>
+            <a href="{% url 'post_edit' post.pk %}"><button>Edit</button></a>
+            <a href="{% url 'post_delete' post.pk %}"><button>Delete</button></a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
